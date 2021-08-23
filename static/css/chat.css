@@ -1,0 +1,69 @@
+a {
+  text-decoration: none;
+}
+
+#wrapper {
+  bottom: 0px;
+}
+
+.c_head {
+  width: 48px;
+}
+
+.c_head img {
+  width: 40px;
+  height: 40px;
+}
+
+.c_foot {
+  width: 48px;
+}
+
+.c_body {
+  text-align: left;
+  overflow: hidden;
+}
+
+.c_body * {
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.c_body>a {
+  color: #333;
+  display: block;
+  /* height: 40px;
+  line-height: 40px; */
+  overflow: hidden;
+  max-width: 250px;
+}
+
+.c_body>a .head {
+  font-weight: bold;
+}
+
+.ico_right {
+  background: url('/static/images/ico_right.png') no-repeat 50% 50%;
+  -webkit-background-size: 19.2px 19.2px;
+  -moz-background-size: 19.2px 19.2px;
+  background-size: 19.2px 19.2px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  padding: 0 3.2px;
+  text-indent: -999em;
+  overflow: hidden;
+}
+
+.msg_hint {
+  background-color: rgb(140, 211, 239);
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 100px;
+  display: block;
+  width: 30px;
+  overflow: hidden;
+  text-align: center;
+  display: none;
+}

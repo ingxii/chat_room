@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>客服首页</title>
+    <script>
+        window.PointerEvent = undefined
+    </script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/iscroll5.js"></script>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/chat.css">
+
+</head>
+
+<body onload="loaded()">
+    <div id="header" style="position: relative;width: 100%;height: 45px;line-height: 45px;background: #CD235C;color: #eee;font-size: 20px;text-align: center;font-weight: bold;">
+        <!-- <div style="position: absolute;top: 0;left: 0;"> <a href="javascript:window.history.back();" style="background: url('/static/images/ico_left.png') no-repeat 50% 50%;-webkit-background-size: 19.2px 19.2px;-moz-background-size: 19.2px 19.2px;background-size: 19.2px 19.2px;width: 48px;display: block;padding: 0 3.2px;text-indent: -999em;overflow: hidden;"> 返回 </a></div> -->
+        <div style="position: absolute;top: 0;right: 0;"> <a href="/admin" style="background: url('/static/images/ico_setting.png') no-repeat 50% 50%;-webkit-background-size: 19.2px 19.2px;-moz-background-size: 19.2px 19.2px;background-size: 19.2px 19.2px;width: 48px;display: block;padding: 0 3.2px;text-indent: -999em;overflow: hidden;"> 管理 </a></div>
+        <a href="javascript:;" style="color:white;text-decoration: none;">客服首页</a>
+    </div>
+
+
+
+    <!--消息显示区域-->
+    <div id="wrapper">
+        <div id="scroller">
+            <ul class="content table">
+                <li class="tr" room_id=1>
+                    <span class="td c_head"><img src="/static/images/qunchat.jpg"></span>
+                    <span class="td c_body"><a href="/room?id=1">
+
+                        <div class="head">[公共频道]</div>
+                        <div class="body"></div>
+                    </a></span>
+                    <span class="td c_foot "><div class="msg_hint"  ></div></span>
+                </li>
+
+                {%for item in rooms %}
+                <li class="tr" room_id="{{item.room_id}}">
+                    <span class="td c_head"><img src="/static/images/head_default.png"></span>
+                    <span class="td c_body">
+                        <a href="/room?id={{item.room_id}}">
+                            <div class="head">{{item.room_name}}</div>
+                            <div class="body"></div>
+                        </a>
+                    </span>
+                    <span class="td c_foot "><div class="msg_hint"></div></span>
+                </li>
+                {%end %}
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="mask"></div>
+
+
+
+    {% module xsrf_form_html() %}
+    <input type="hidden" id="current_user" value="{{ user['user_id'] }}">
+    <input type="hidden" id="user_name" value="{{ user['username'] }}">
+    <!-- {%if user['welcome'] %} -->
+    <input type="hidden" id="welcome" value="{{ user['welcome'] }}">
+    <!-- {%end%} -->
+
+    <div id="msg_notice"><a href="javascript:;">[匿名用户]:[图片]</a></div>
+    <script type="text/javascript" src="/static/js/util.js?v=2"></script>
+    <script type="text/javascript" src="/static/js/sock.js?v=2"></script>
+    <script type="text/javascript" src="/static/js/chat.js?v=2"></script>
+</body>
+
+</html>

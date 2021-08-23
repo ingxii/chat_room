@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>在线聊天</title>
+    <script>
+        window.PointerEvent = undefined
+    </script>
+    <!-- <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="/static/js/iscroll5.js"></script>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/room.css">
+    <link rel="stylesheet" href="/static/css/fixed.css">
+    <script>
+
+    </script>
+</head>
+
+<body onload="loaded()">
+    <div id="header" style="width: 100%;height: 45px;line-height: 45px;background: #CD235C;color: #eee;font-size: 20px;text-align: center;font-weight: bold;">
+        <div style="position: absolute;top: 0;left: 0;"> <a class="ico_left" href="javascript:window.history.back();" style="background: url('/static/images/ico_left.png') no-repeat 50% 50%;-webkit-background-size: 1.2rem 1.2rem;-moz-background-size: 1.2rem 1.2rem;background-size: 1.2rem 1.2rem;width: 3rem;display: block;padding: 0 0.2rem;text-indent: -999em;overflow: hidden;"> 返回 </a></div>
+        <a href="javascript:;" style="color:white;text-decoration: none;">在线聊天</a>
+    </div>
+
+    <!--消息显示区域-->
+    <div id="wrapper">
+        <div id="scroller">
+            <ul class="content">
+                <!--
+                <li class="from_r">
+                    <div class='date_time'>
+                        <span class='month_num'>2017年8月12日</span>
+                    </div>
+                    <div class='msg_head'><img src='/static/images/chat_log.jpg'></div>
+                    <div class='msg_main'>
+                        <div class='msg_name'>unkown</div>
+                        <div class='msg_content'>
+                            <div class='msg_text'>香木林</div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="from_l">
+                    <div class='date_time'>
+                        <span class='month_num'>2017年8月12日</span>
+                    </div>
+                    <div class='msg_head'><img src='/static/images/chat_log.jpg'></div>
+                    <div class='msg_main'>
+                        <div class='msg_name'>unkown</div>
+                        <div class='msg_content'>
+                            <img src="/static/images/1.jpg" alt="" srcset="">
+                        </div>
+                    </div>
+                </li>
+
+                <li class="from_l">
+                    <div class='date_time'>
+                        <span class='month_num'>2017年8月12日</span>
+                    </div>
+                    <div class='msg_head'><img src='/static/images/chat_log.jpg'></div>
+                    <div class='msg_main'>
+                        <div class='msg_name'>unkown</div>
+                        <div class='msg_content'>
+                            <div class='msg_text'>安泊尔</div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="from_r">
+                    <div class='date_time'>
+                        <span class='month_num'>2017年8月12日</span>
+                    </div>
+                    <div class='msg_head'><img src='/static/images/chat_log.jpg'></div>
+                    <div class='msg_main'>
+                        <div class='msg_name'>unkown</div>
+                        <div class='msg_content'>
+                            <img src="/static/images/1.jpg" alt="" srcset="">
+                        </div>
+                    </div>
+                </li> -->
+
+            </ul>
+        </div>
+    </div>
+    <!--消息显示区域-->
+    <!--聊天记录发送区域-->
+    <div id="footer">
+        <!--
+        <input type="submit" style="float: right; min-width:20%" value="发送" id="send"> -->
+
+        <div id="toolbar" class="table">
+            <li class="tr">
+                <span class="td"><input type="text"   id="message" value="" onpropertychange="return input_change(1);"  onchange="return input_change(2);" oninput="return input_change(3);">
+                </span>
+                <span class="td" id="tb_express">
+                    <img src="/static/images/exprssion1.png">
+                </span>
+                <span class="td" id="tb_image">
+                        <input type="file" name="file" capture="camera"  accept=".png,.jpg,.jpeg,image/png,image/jpg,image/jpeg" >
+                        <img src="/static/images/photo_logo.png">
+                </span>
+                <span class="td" id="tb_send" style="display: none;">
+                        <img src="/static/images/send.png">
+                    </span>
+            </li>
+        </div>
+
+        <div id="expressions" class="expression_all table" style="display: none;">
+            <ul class="tr">
+                <li class="td" id="e1"><img src="/static/images/expression_img/xiao028.png"></li>
+                <li class="td" id="e2"><img src="/static/images/expression_img/xiao029.png"></li>
+                <li class="td" id="e3"><img src="/static/images/expression_img/xiao030.png"></li>
+                <li class="td" id="e4"><img src="/static/images/expression_img/xiao031.png"></li>
+                <li class="td" id="e5"><img src="/static/images/expression_img/xiao032.png"></li>
+                <li class="td" id="e6"><img src="/static/images/expression_img/xiao033.png"></li>
+            </ul>
+            <ul class="tr">
+                <li class="td" id="e7"><img src="/static/images/expression_img/xiao034.png"></li>
+                <li class="td" id="e8"><img src="/static/images/expression_img/xiao035.png"></li>
+                <li class="td" id="e9"><img src="/static/images/expression_img/xiao036.png"></li>
+                <li class="td" id="e10"><img src="/static/images/expression_img/xiao037.png"></li>
+                <li class="td" id="e11"><img src="/static/images/expression_img/xiao038.png"></li>
+                <li class="td" id="e12"><img src="/static/images/expression_img/xiao039.png"></li>
+            </ul>
+            <ul class="tr">
+                <li class="td" id="e13"><img src="/static/images/expression_img/xiao040.png"></li>
+                <li class="td" id="e14"><img src="/static/images/expression_img/xiao041.png"></li>
+                <li class="td" id="e15"><img src="/static/images/expression_img/xiao042.png"></li>
+                <li class="td" id="e16"><img src="/static/images/expression_img/xiao043.png"></li>
+                <li class="td" id="e17"><img src="/static/images/expression_img/xiao044.png"></li>
+                <li class="td" id="e18"><img src="/static/images/expression_img/xiao045.png"></li>
+            </ul>
+            <ul class="tr">
+                <li class="td" id="e19"><img src="/static/images/expression_img/xiao046.png"></li>
+            </ul>
+        </div>
+    </div>
+    <!--聊天记录发送区域-->
+
+    <div class="oimage">
+        <table style="height: 100%;width: 100%;">
+            <tr>
+                <td><img style="max-width: 100%;background: #fff;"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="mask"></div>
+
+
+
+    {% module xsrf_form_html() %}
+    <input type="hidden" id="current_user" value="{{ user['user_id'] }}">
+    <input type="hidden" id="user_name" value="{{ user['username'] }}">
+    <input type="hidden" id="user_role" value="{{ user['role'] }}">
+    <!-- {%if user['welcome'] %} -->
+    <input type="hidden" id="welcome" value="{{ user['welcome'] }}">
+    <!-- {%end%} -->
+    <input type="hidden" id="current_room" value="{{ current_room }}">
+
+
+    <div id="loading">
+        <img src="/static/images/loading.gif">
+    </div>
+    <progress id="progress" value="0" max="100"></progress>
+    <div id="msg_notice"><a href="javascript:;">[匿名用户]:[图片]</a></div>
+    <script type="text/javascript" src="/static/js/util.js?v=2"></script>
+    <script type="text/javascript" src="/static/js/sock.js?v=2"></script>
+    <script type="text/javascript" src="/static/js/room.js?v=2"></script>
+</body>
+
+</html>
