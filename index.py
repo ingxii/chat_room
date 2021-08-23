@@ -41,6 +41,7 @@ from tornado.options import options
 
 # user defined
 import config
+import router
 from handler_base import ErrorHandler, TestHandler
 from handler_web import RoomHandler, LoginHandler, IndexHandler,KefuHandler,AdminHandler,LogoutHandler,ChatHandler
 from handler_chat import SocketChatHandler

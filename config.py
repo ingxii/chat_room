@@ -25,7 +25,7 @@ define("DEBUG", default=True)
 
 define("port", default=10001, help="run on the given port", type=int)
 
-define("mysql_host", default="test0003.yzwgo.com:13306")
+define("mysql_host", default="test0003.yzwgo.com:0000")
 define("mysql_db", default="cn")
 define("mysql_user", default="cn")
 define("mysql_pass", default="123456")
